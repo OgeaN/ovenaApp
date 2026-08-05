@@ -1,0 +1,350 @@
+/*
+ * Ovena - ortak stil.
+ *
+ * Renkler uygulamanin tasarim token'larindan (src/design/tokens.ts) alindi,
+ * boylece siteyle uygulama ayni dili konusuyor: ayni erik/orkide paleti,
+ * ayni yuvarlaklik, ayni tipografi olcegi.
+ *
+ * Karanlik tema `prefers-color-scheme` ile otomatik - kullanicinin telefonu
+ * koyu temadaysa sayfa da koyu acilir.
+ */
+
+:root {
+  --bg: #ffffff;
+  --surface: #faf9fc;
+  --container: #f4f2f8;
+  --border: #e9e5f0;
+  --fg: #1a1524;
+  --fg-muted: #5c5370;
+  --fg-subtle: #a89fb8;
+  --accent: #9333ea;
+  --accent-soft: #faf5ff;
+  --danger: #f43f5e;
+  --success: #22c1a5;
+  --plum: #3a2035;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #110d18;
+    --surface: #1a1524;
+    --container: #2a2438;
+    --border: #2f2840;
+    --fg: #f6f3fa;
+    --fg-muted: #a89fb8;
+    --fg-subtle: #7c7290;
+    --accent: #c084fc;
+    --accent-soft: #2a1f3d;
+    --danger: #fb7199;
+    --success: #22c1a5;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 28px 20px 80px;
+}
+
+/* ---------- Baslik ---------- */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--plum);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.mark svg {
+  width: 28px;
+  height: 28px;
+}
+
+.brand-name {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.brand-sub {
+  font-size: 12px;
+  color: var(--fg-muted);
+}
+
+/* ---------- Dil secici ---------- */
+
+.lang {
+  display: flex;
+  gap: 4px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px;
+  flex-shrink: 0;
+}
+
+.lang button {
+  border: 0;
+  background: transparent;
+  color: var(--fg-muted);
+  font: inherit;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.lang button[aria-pressed='true'] {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ---------- Gezinme ---------- */
+
+nav.pages {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+nav.pages a {
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--fg-muted);
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+
+nav.pages a:hover {
+  color: var(--fg);
+}
+
+nav.pages a[aria-current='page'] {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: transparent;
+  font-weight: 600;
+}
+
+/* ---------- Tipografi ---------- */
+
+h1 {
+  font-size: 30px;
+  line-height: 1.22;
+  margin: 0 0 14px;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 38px 0 12px;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: 16px;
+  margin: 22px 0 8px;
+}
+
+p {
+  margin: 0 0 16px;
+  color: var(--fg-muted);
+}
+
+.lead {
+  font-size: 17px;
+  color: var(--fg);
+}
+
+a {
+  color: var(--accent);
+}
+
+strong {
+  color: var(--fg);
+}
+
+ol,
+ul {
+  margin: 0 0 16px;
+  padding-left: 22px;
+  color: var(--fg-muted);
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+code {
+  background: var(--container);
+  padding: 2px 7px;
+  border-radius: 5px;
+  font-size: 0.88em;
+  color: var(--fg);
+}
+
+/* ---------- Bilesenler ---------- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.card.accent {
+  background: var(--accent-soft);
+  border-color: transparent;
+}
+
+.pill {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 14px 26px;
+  border-radius: 12px;
+  margin: 4px 0 10px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Tablolar dar ekranda yatay kayar - hucreleri ezmekten iyidir. */
+.table-scroll {
+  overflow-x: auto;
+  margin-bottom: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  min-width: 420px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+th {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--fg-muted);
+  font-weight: 600;
+}
+
+td:first-child {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.tag.local {
+  background: var(--container);
+  color: var(--fg-muted);
+}
+
+.tag.cloud {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+footer {
+  margin-top: 52px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--fg-subtle);
+}
+
+footer a {
+  color: var(--fg-muted);
+}
+
+/* ---------- Dil gorunurlugu ---------- */
+
+[data-lang] {
+  display: none;
+}
+
+[data-lang].on {
+  display: block;
+}
+
+span[data-lang].on,
+a[data-lang].on {
+  display: inline;
+}
+
+th[data-lang].on,
+td[data-lang].on {
+  display: table-cell;
+}

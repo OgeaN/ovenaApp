@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ovena — Hesap ve Veri Silme</title>
+    <meta
+      name="description"
+      content="Ovena uygulaması hesabınızı ve verilerinizi silme talebi oluşturun. Silinen ve saklanan veri türleri." />
+    <meta name="robots" content="index, follow" />
+    <link rel="stylesheet" href="style.css" />
+    <!--
+      GOOGLE PLAY - HESAP SILME URL'SI
+
+      Play'in bu sayfadan bekledigi uc sey ve nerede karsilandigi:
+
+        1. "Magaza girisinde gosterilen uygulama VEYA GELISTIRICI adina
+            atifta bulunma"
+           -> Sayfanin en ustunde "Ovena" ve gelistirici adi acikca yaziyor
+              (.identity blogu). Paket adi da (com.ovena.app) eslesmeyi
+              kesinlestiriyor.
+
+        2. "Kullanicilarin uygulamasi gereken adimlari BELIRGIN sekilde
+            gosterme"
+           -> Numarali adimlar, sayfanin ilk ekraninda, vurgulu kart icinde.
+
+        3. "Silinen ya da saklanan veri turlerini ve EK SAKLAMA SURELERINI
+            belirtme"
+           -> Iki ayri tablo: silinenler ve saklananlar. Saklananlar
+              tablosunda her satirin kendi suresi yaziyor.
+
+      Ayrica: uygulama indirilmeden erisilebilir ve giris gerektirmez.
+    -->
+    <span hidden data-title-tr="Ovena — Hesap ve Veri Silme"></span>
+    <span hidden data-title-en="Ovena — Account &amp; Data Deletion"></span>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header>
+        <a class="brand" href="index.html">
+          <div class="mark" aria-hidden="true">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="50" cy="50" rx="34" ry="39" stroke="#e9bab3" stroke-width="5" />
+              <path d="M32 62c0-11 9-20 20-20 0 8-2 14-6 18-4 4-9 6-14 6z" fill="#e9bab3" />
+              <path d="M62 30l2.5 7 7 2.5-7 2.5-2.5 7-2.5-7-7-2.5 7-2.5z" fill="#e9bab3" />
+            </svg>
+          </div>
+          <div>
+            <div class="brand-name">Ovena</div>
+            <div class="brand-sub">com.ovena.app</div>
+          </div>
+        </a>
+
+        <div class="lang" role="group" aria-label="Dil / Language">
+          <button type="button" data-set="tr" aria-pressed="true">Türkçe</button>
+          <button type="button" data-set="en" aria-pressed="false">English</button>
+        </div>
+      </header>
+
+      <nav class="pages">
+        <a href="index.html" data-lang="tr" class="on">Ana sayfa</a>
+        <a href="index.html" data-lang="en">Home</a>
+        <a href="gizlilik.html" data-lang="tr" class="on">Gizlilik Politikası</a>
+        <a href="gizlilik.html" data-lang="en">Privacy Policy</a>
+        <a href="hesap-silme.html" aria-current="page" data-lang="tr" class="on">Hesap Silme</a>
+        <a href="hesap-silme.html" aria-current="page" data-lang="en">Delete Account</a>
+      </nav>
+
+      <!-- ============================== TÜRKÇE ============================== -->
+      <main data-lang="tr" class="on">
+        <h1>Hesap ve veri silme</h1>
+
+        <!-- ŞART 1: uygulama + geliştirici adına atıf -->
+        <p class="lead">
+          Bu sayfa <strong>Ovena</strong> (<code>com.ovena.app</code>) uygulaması içindir.
+          Geliştirici: <strong>Osman Gündemir</strong>.
+        </p>
+        <p>
+          Hesabınızı ve saklanan tüm verilerinizi kalıcı olarak sildirebilirsiniz. Bu işlem
+          <strong>geri alınamaz</strong>.
+        </p>
+
+        <!-- ŞART 2: adımlar belirgin -->
+        <h2>Silme talebi için izlenecek adımlar</h2>
+        <div class="card accent">
+          <div class="pill">Adım adım</div>
+          <ol>
+            <li>
+              Aşağıdaki <strong>Silme talebi gönder</strong> düğmesine dokunun (veya
+              <a href="mailto:osmangundemir1@gmail.com">osmangundemir1@gmail.com</a> adresine
+              e-posta yazın).
+            </li>
+            <li>
+              E-postayı <strong>hesabınızda kayıtlı e-posta adresinden</strong> gönderin. Kimliği
+              doğrulayabilmemiz için bu gereklidir.
+            </li>
+            <li>
+              Konu satırına <code>Hesap Silme Talebi</code> yazın.
+            </li>
+            <li>
+              Talebiniz <strong>en geç 30 gün içinde</strong> işleme alınır ve tamamlandığında size
+              e-posta ile bilgi verilir.
+            </li>
+          </ol>
+          <a
+            class="btn"
+            href="mailto:osmangundemir1@gmail.com?subject=Hesap%20Silme%20Talebi%20-%20Ovena&body=Ovena%20hesab%C4%B1m%C4%B1n%20ve%20t%C3%BCm%20verilerimin%20kal%C4%B1c%C4%B1%20olarak%20silinmesini%20talep%20ediyorum.%0A%0AHesab%C4%B1mda%20kay%C4%B1tl%C4%B1%20e-posta%20adresim%3A%20">
+            Silme talebi gönder
+          </a>
+        </div>
+
+        <div class="card">
+          <p style="margin: 0">
+            <strong>Hesap oluşturmadan kullanıyorsanız:</strong> Ovena'yı e-posta ile giriş
+            yapmadan kullandıysanız sunucuda kimliğinizle ilişkilendirilmiş kişisel bir kayıt
+            bulunmaz. Uygulamayı telefonunuzdan kaldırmanız tüm verilerinizi siler; ayrıca talep
+            göndermenize gerek yoktur.
+          </p>
+        </div>
+
+        <!-- ŞART 3a: silinen veri türleri -->
+        <h2>Silinen veri türleri</h2>
+        <p>Talebiniz üzerine aşağıdaki verilerin tamamı kalıcı olarak silinir:</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Veri türü</th>
+                <th>İçerik</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Hesap</td>
+                <td>Kullanıcı kimliği (uid), e-posta adresi, giriş bilgileri</td>
+              </tr>
+              <tr>
+                <td>Döngü kayıtları</td>
+                <td>Regl başlangıç ve bitiş tarihleri, notlar</td>
+              </tr>
+              <tr>
+                <td>Günlük kayıtlar</td>
+                <td>Akış yoğunluğu, semptomlar, ruh hâli, günlük notlar</td>
+              </tr>
+              <tr>
+                <td>Profil bilgileri</td>
+                <td>
+                  İsim, doğum yılı, boy, kilo, gebelik/emzirme durumu, doğum kontrol yöntemi
+                </td>
+              </tr>
+              <tr>
+                <td>Analiz verileri</td>
+                <td>Hesaplanan istatistikler, tahminler, geçmiş döngü anlık görüntüleri</td>
+              </tr>
+              <tr>
+                <td>Cihaz verileri</td>
+                <td>Telefonunuzda saklanan tüm kayıtlar ve profil fotoğrafınız</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ŞART 3b: saklanan veriler + süreler -->
+        <h2>Saklanan veriler ve süreleri</h2>
+        <p>
+          Silme işleminden sonra <strong>size ait hiçbir kişisel veri saklanmaz</strong>. Aşağıdaki
+          tablo istisnaları ve sürelerini gösterir:
+        </p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Veri</th>
+                <th>Saklama süresi</th>
+                <th>Neden</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Kişisel veriler</td>
+                <td><strong>Saklanmaz</strong> (0 gün)</td>
+                <td>Talep üzerine tamamen silinir</td>
+              </tr>
+              <tr>
+                <td>Sağlık ve döngü verileri</td>
+                <td><strong>Saklanmaz</strong> (0 gün)</td>
+                <td>Talep üzerine tamamen silinir</td>
+              </tr>
+              <tr>
+                <td>Yedeklerdeki kopyalar</td>
+                <td>En fazla <strong>30 gün</strong></td>
+                <td>
+                  Sistem yedekleri döngüsel olarak üzerine yazılır; bu süre sonunda kalıcı olarak
+                  yok olur
+                </td>
+              </tr>
+              <tr>
+                <td>Silme talebi yazışması</td>
+                <td>En fazla <strong>90 gün</strong></td>
+                <td>Talebin yerine getirildiğini kanıtlamak için; sonra silinir</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Verilerinizi kendiniz silme</h2>
+        <p>
+          Telefonunuzdaki kayıtları talep göndermeden, hemen silebilirsiniz:
+        </p>
+        <ol>
+          <li>Ovena'yı açın ve <strong>Ayarlar</strong> sekmesine gidin</li>
+          <li><strong>Veri</strong> başlığı altındaki <strong>Tüm verileri sil</strong>'e dokunun</li>
+          <li>Onay ekranında <strong>Sil</strong>'i seçin</li>
+        </ol>
+        <p>
+          Bu işlem telefonunuzdaki tüm kayıtları siler. Sunucudaki hesabınızın da silinmesi için
+          yukarıdaki e-posta talebini gönderin.
+        </p>
+
+        <h2>İletişim</h2>
+        <p>
+          Sorularınız için:
+          <a href="mailto:osmangundemir1@gmail.com">osmangundemir1@gmail.com</a>
+        </p>
+      </main>
+
+      <!-- ============================== ENGLISH ============================== -->
+      <main data-lang="en">
+        <h1>Account and data deletion</h1>
+
+        <p class="lead">
+          This page is for the <strong>Ovena</strong> app (<code>com.ovena.app</code>). Developer:
+          <strong>Osman Gündemir</strong>.
+        </p>
+        <p>
+          You can permanently delete your account and all stored data. This action
+          <strong>cannot be undone</strong>.
+        </p>
+
+        <h2>Steps to request deletion</h2>
+        <div class="card accent">
+          <div class="pill">Step by step</div>
+          <ol>
+            <li>
+              Tap the <strong>Send deletion request</strong> button below (or email
+              <a href="mailto:osmangundemir1@gmail.com">osmangundemir1@gmail.com</a>).
+            </li>
+            <li>
+              Send the email from the
+              <strong>address registered to your account</strong> so we can verify your identity.
+            </li>
+            <li>Use <code>Account Deletion Request</code> as the subject line.</li>
+            <li>
+              Your request is processed <strong>within 30 days</strong>, and you receive an email
+              confirmation once complete.
+            </li>
+          </ol>
+          <a
+            class="btn"
+            href="mailto:osmangundemir1@gmail.com?subject=Account%20Deletion%20Request%20-%20Ovena&body=I%20request%20permanent%20deletion%20of%20my%20Ovena%20account%20and%20all%20my%20data.%0A%0AEmail%20registered%20to%20my%20account%3A%20">
+            Send deletion request
+          </a>
+        </div>
+
+        <div class="card">
+          <p style="margin: 0">
+            <strong>If you use Ovena without an account:</strong> if you never signed in with an
+            email, no personal record is linked to your identity on our servers. Uninstalling the
+            app removes all your data — no request is needed.
+          </p>
+        </div>
+
+        <h2>Data types that are deleted</h2>
+        <p>Upon your request, all of the following is permanently deleted:</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Data type</th>
+                <th>Contents</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Account</td>
+                <td>User ID (uid), email address, sign-in credentials</td>
+              </tr>
+              <tr>
+                <td>Cycle records</td>
+                <td>Period start and end dates, notes</td>
+              </tr>
+              <tr>
+                <td>Daily logs</td>
+                <td>Flow intensity, symptoms, mood, daily notes</td>
+              </tr>
+              <tr>
+                <td>Profile details</td>
+                <td>Name, birth year, height, weight, pregnancy status, contraception method</td>
+              </tr>
+              <tr>
+                <td>Analytics</td>
+                <td>Computed statistics, predictions, historical cycle snapshots</td>
+              </tr>
+              <tr>
+                <td>Device data</td>
+                <td>All records stored on your phone and your profile photo</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Data retained and retention periods</h2>
+        <p>
+          After deletion, <strong>no personal data about you is retained</strong>. The table below
+          lists the exceptions and their durations:
+        </p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Retention period</th>
+                <th>Reason</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Personal data</td>
+                <td><strong>Not retained</strong> (0 days)</td>
+                <td>Fully deleted upon request</td>
+              </tr>
+              <tr>
+                <td>Health and cycle data</td>
+                <td><strong>Not retained</strong> (0 days)</td>
+                <td>Fully deleted upon request</td>
+              </tr>
+              <tr>
+                <td>Copies in system backups</td>
+                <td>Up to <strong>30 days</strong></td>
+                <td>Backups rotate and overwrite; data is gone permanently after this period</td>
+              </tr>
+              <tr>
+                <td>Deletion request correspondence</td>
+                <td>Up to <strong>90 days</strong></td>
+                <td>To evidence that the request was fulfilled; deleted afterwards</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Deleting data yourself</h2>
+        <p>You can clear the records on your phone immediately, without sending a request:</p>
+        <ol>
+          <li>Open Ovena and go to the <strong>Settings</strong> tab</li>
+          <li>Under <strong>Data</strong>, tap <strong>Delete all data</strong></li>
+          <li>Choose <strong>Delete</strong> on the confirmation screen</li>
+        </ol>
+        <p>
+          This removes all records from your phone. To also delete your server-side account, send
+          the email request above.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Questions:
+          <a href="mailto:osmangundemir1@gmail.com">osmangundemir1@gmail.com</a>
+        </p>
+      </main>
+
+      <footer>
+        <span data-lang="tr" class="on">
+          Ovena · com.ovena.app · Geliştirici: Osman Gündemir · Son güncelleme: 5 Ağustos 2026
+        </span>
+        <span data-lang="en">
+          Ovena · com.ovena.app · Developer: Osman Gündemir · Last updated: 5 August 2026
+        </span>
+      </footer>
+    </div>
+
+    <script src="lang.js"></script>
+  </body>
+</html>
