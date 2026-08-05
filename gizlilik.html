@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ovena — Gizlilik Politikası</title>
+    <meta
+      name="description"
+      content="Ovena uygulamasının gizlilik politikası: hangi veriler toplanır, nerede saklanır, kiminle paylaşılır." />
+    <meta name="robots" content="index, follow" />
+    <link rel="stylesheet" href="style.css" />
+    <!--
+      GIZLILIK POLITIKASI
+
+      Bu metin uydurulmadi; uygulamanin GERCEK davranisindan cikarildi:
+        - src/domain/types.ts        -> toplanan alanlarin tam listesi
+        - firebase/firestore.rules   -> sunucuda ne tutuldugu ve kimin erisebildigi
+        - src/data/local/db.ts       -> cihazda ne tutuldugu
+        - src/data/sync.ts           -> sunucuya NE gonderildigi
+        - app.json                   -> izinler
+
+      Ozellikle dogrulanan iki nokta:
+        1. Profil fotografi CIHAZDAN CIKMAZ. Sadece yerel dosya yolu
+           (avatarUri) senkronlanir, goruntunun kendisi yuklenmez.
+        2. Reklam SDK'si, analitik SDK'si veya ucuncu taraf takip yok.
+           Yalnizca Firebase (Google) kullaniliyor.
+    -->
+    <span hidden data-title-tr="Ovena — Gizlilik Politikası"></span>
+    <span hidden data-title-en="Ovena — Privacy Policy"></span>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header>
+        <a class="brand" href="index.html">
+          <div class="mark" aria-hidden="true">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="50" cy="50" rx="34" ry="39" stroke="#e9bab3" stroke-width="5" />
+              <path d="M32 62c0-11 9-20 20-20 0 8-2 14-6 18-4 4-9 6-14 6z" fill="#e9bab3" />
+              <path d="M62 30l2.5 7 7 2.5-7 2.5-2.5 7-2.5-7-7-2.5 7-2.5z" fill="#e9bab3" />
+            </svg>
+          </div>
+          <div>
+            <div class="brand-name">Ovena</div>
+            <div class="brand-sub">com.ovena.app</div>
+          </div>
+        </a>
+
+        <div class="lang" role="group" aria-label="Dil / Language">
+          <button type="button" data-set="tr" aria-pressed="true">Türkçe</button>
+          <button type="button" data-set="en" aria-pressed="false">English</button>
+        </div>
+      </header>
+
+      <nav class="pages">
+        <a href="index.html" data-lang="tr" class="on">Ana sayfa</a>
+        <a href="index.html" data-lang="en">Home</a>
+        <a href="gizlilik.html" aria-current="page" data-lang="tr" class="on">Gizlilik Politikası</a>
+        <a href="gizlilik.html" aria-current="page" data-lang="en">Privacy Policy</a>
+        <a href="hesap-silme.html" data-lang="tr" class="on">Hesap Silme</a>
+        <a href="hesap-silme.html" data-lang="en">Delete Account</a>
+      </nav>
+
+      <!-- ============================== TÜRKÇE ============================== -->
+      <main data-lang="tr" class="on">
+        <h1>Gizlilik Politikası</h1>
+        <p class="lead">
+          <strong>Ovena</strong> (<code>com.ovena.app</code>) uygulaması için.
+          Geliştirici: <strong>Osman Gündemir</strong>. Yürürlük tarihi: 5 Ağustos 2026.
+        </p>
+
+        <div class="card accent">
+          <div class="pill">Kısaca</div>
+          <p style="margin: 0; color: var(--fg)">
+            Ovena bir regl takip uygulamasıdır ve sağlığınıza dair hassas veriler işler. Verileriniz
+            <strong>öncelikle telefonunuzda</strong> saklanır. Reklam göstermiyoruz, verilerinizi
+            <strong>satmıyoruz</strong> ve reklam ağlarıyla <strong>paylaşmıyoruz</strong>. Profil
+            fotoğrafınız telefonunuzdan hiç çıkmaz.
+          </p>
+        </div>
+
+        <h2>1. Toplanan veriler</h2>
+        <p>
+          Uygulamayı kullanabilmeniz için gereken veriler yalnızca sizin girdiklerinizdir. Aşağıdaki
+          tabloda her verinin nerede saklandığı gösterilmiştir.
+        </p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Veri</th>
+                <th>Saklandığı yer</th>
+                <th>Zorunlu mu?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Döngü tarihleri</td>
+                <td><span class="tag local">Cihaz</span> <span class="tag cloud">Sunucu</span></td>
+                <td>Uygulamanın temel işlevi</td>
+              </tr>
+              <tr>
+                <td>Semptom, akış, ruh hâli</td>
+                <td><span class="tag local">Cihaz</span> <span class="tag cloud">Sunucu</span></td>
+                <td>İsteğe bağlı</td>
+              </tr>
+              <tr>
+                <td>İsim</td>
+                <td><span class="tag local">Cihaz</span> <span class="tag cloud">Sunucu</span></td>
+                <td>İsteğe bağlı</td>
+              </tr>
+              <tr>
+                <td>Doğum yılı</td>
+                <td><span class="tag local">Cihaz</span> <span class="tag cloud">Sunucu</span></td>
+                <td>İsteğe bağlı — yalnızca yıl, tam tarih değil</td>
+              </tr>
+              <tr>
+                <td>Boy ve kilo</td>
+                <td><span class="tag local">Cihaz</span> <span class="tag cloud">Sunucu</span></td>
+                <td>İsteğe bağlı</td>
+              </tr>
+              <tr>
+                <td>Gebelik / doğum kontrolü</td>
+                <td><span class="tag local">Cihaz</span> <span class="tag cloud">Sunucu</span></td>
+                <td>İsteğe bağlı</td>
+              </tr>
+              <tr>
+                <td>Profil fotoğrafı</td>
+                <td><span class="tag local">Yalnızca cihaz</span></td>
+                <td>İsteğe bağlı — <strong>sunucuya yüklenmez</strong></td>
+              </tr>
+              <tr>
+                <td>E-posta adresi</td>
+                <td><span class="tag cloud">Sunucu</span></td>
+                <td>Yalnızca hesap oluşturursanız</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          <strong>Toplamadıklarımız:</strong> konum, kişi listesi, arama geçmişi, cihaz kimliği,
+          reklam kimliği, kamera veya mikrofon kaydı. Uygulamanın istediği tek sistem izni
+          <strong>bildirim gönderme</strong> iznidir (hatırlatmalar için) ve reddedebilirsiniz.
+        </p>
+
+        <h2>2. Verileriniz nerede saklanır?</h2>
+        <p>
+          Ovena <strong>yerel öncelikli</strong> çalışır: kayıtlarınız önce telefonunuzdaki
+          veritabanına yazılır. İnternet olmadan da kullanabilirsiniz.
+        </p>
+        <p>
+          Yedekleme ve cihaz değiştirdiğinizde verilerinizi geri getirebilmek için kayıtlarınız
+          ayrıca <strong>Google Firebase</strong> (Google Cloud Firestore) üzerinde saklanır.
+          Verileriniz <strong>yalnızca sizin hesabınıza bağlıdır</strong>; güvenlik kuralları
+          başka hiçbir kullanıcının verilerinizi okumasına izin vermez.
+        </p>
+
+        <h2>3. Verilerin kullanım amacı</h2>
+        <ul>
+          <li>Döngünüzü kaydetmek ve takvimde göstermek</li>
+          <li>Ortalama döngü uzunluğu, düzenlilik ve gecikme gibi analizleri hesaplamak</li>
+          <li>Bir sonraki regl ve ovülasyon tarihini tahmin etmek</li>
+          <li>İzin verdiyseniz hatırlatma bildirimi göndermek</li>
+          <li>Cihaz değiştirdiğinizde verilerinizi geri yüklemek</li>
+        </ul>
+        <p>
+          Verileriniz <strong>profilleme, reklam hedefleme veya pazarlama</strong> için
+          kullanılmaz.
+        </p>
+
+        <h2>4. Paylaşım</h2>
+        <p>
+          Verilerinizi <strong>satmıyoruz</strong> ve reklam ağlarıyla paylaşmıyoruz. Uygulamada
+          reklam SDK'sı veya üçüncü taraf analitik izleyici bulunmaz.
+        </p>
+        <p>Yalnızca aşağıdaki hizmet sağlayıcı kullanılır:</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Sağlayıcı</th>
+                <th>Amaç</th>
+                <th>Politikası</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Google Firebase</td>
+                <td>Kimlik doğrulama, veri yedekleme ve senkronizasyon</td>
+                <td>
+                  <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener"
+                    >firebase.google.com/support/privacy</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Ayrıca yasal bir zorunluluk (mahkeme kararı gibi) olması hâlinde verileri açıklamak
+          durumunda kalabiliriz.
+        </p>
+
+        <h2>5. Güvenlik</h2>
+        <ul>
+          <li>Sunucuyla iletişim <strong>HTTPS/TLS</strong> ile şifrelenir</li>
+          <li>
+            Firestore güvenlik kuralları, her kullanıcının <strong>yalnızca kendi verisine</strong>
+            erişmesine izin verir; bu kontrol Google'ın sunucusunda çalışır
+          </li>
+          <li>Uygulama kodunu değiştirmek bu korumayı aşmaya yetmez</li>
+        </ul>
+        <p>
+          Hiçbir sistem %100 güvenli değildir; makul teknik önlemleri alıyor olsak da mutlak
+          güvenlik garantisi veremeyiz.
+        </p>
+
+        <h2>6. Saklama süresi</h2>
+        <p>
+          Verileriniz siz silene kadar saklanır. Silme talebinde bulunduğunuzda
+          <strong>en geç 30 gün içinde</strong> kalıcı olarak silinir. Ayrıntılar ve süreler için
+          <a href="hesap-silme.html">Hesap Silme</a> sayfasına bakın.
+        </p>
+
+        <h2>7. Haklarınız</h2>
+        <p>KVKK ve GDPR kapsamında şu haklara sahipsiniz:</p>
+        <ul>
+          <li>Verilerinize <strong>erişme</strong> ve bir kopyasını isteme</li>
+          <li>Yanlış verilerin <strong>düzeltilmesini</strong> isteme (uygulama içinden yapabilirsiniz)</li>
+          <li>Verilerinizin <strong>silinmesini</strong> isteme</li>
+          <li>İşlemeye <strong>itiraz etme</strong> ve rızanızı geri çekme</li>
+        </ul>
+        <p>
+          Bu haklarınızı kullanmak için
+          <a href="mailto:osmangundemir1@gmail.com">osmangundemir1@gmail.com</a> adresine yazın.
+        </p>
+
+        <h2>8. Çocukların gizliliği</h2>
+        <p>
+          Ovena <strong>13 yaşın altındaki</strong> çocuklara yönelik değildir ve bu yaş grubundan
+          bilerek veri toplamayız. Böyle bir durumu fark edersek kaydı sileriz.
+        </p>
+
+        <h2>9. Tıbbi uyarı</h2>
+        <p>
+          Ovena'nın sunduğu tahminler <strong>istatistikseldir</strong> ve yalnızca bilgilendirme
+          amaçlıdır. <strong>Tıbbi tavsiye değildir</strong> ve
+          <strong>doğum kontrol yöntemi olarak kullanılamaz</strong>. Sağlığınıza dair kararlar
+          için hekiminize danışın.
+        </p>
+
+        <h2>10. Değişiklikler</h2>
+        <p>
+          Bu politika güncellenebilir. Önemli bir değişiklik olduğunda bu sayfadaki tarih
+          güncellenir ve gerektiğinde uygulama içinde bilgilendirme yapılır.
+        </p>
+
+        <h2>11. İletişim</h2>
+        <p>
+          <strong>Osman Gündemir</strong><br />
+          <a href="mailto:osmangundemir1@gmail.com">osmangundemir1@gmail.com</a>
+        </p>
+      </main>
+
+      <!-- ============================== ENGLISH ============================== -->
+      <main data-lang="en">
+        <h1>Privacy Policy</h1>
+        <p class="lead">
+          For the <strong>Ovena</strong> app (<code>com.ovena.app</code>). Developer:
+          <strong>Osman Gündemir</strong>. Effective date: 5 August 2026.
+        </p>
+
+        <div class="card accent">
+          <div class="pill">In short</div>
+          <p style="margin: 0; color: var(--fg)">
+            Ovena is a period tracking app and handles sensitive health data. Your data is stored
+            <strong>primarily on your phone</strong>. We show no ads, we do
+            <strong>not sell</strong> your data and do <strong>not share</strong> it with ad
+            networks. Your profile photo never leaves your device.
+          </p>
+        </div>
+
+        <h2>1. Data we collect</h2>
+        <p>
+          The only data collected is what you enter yourself. The table shows where each item is
+          stored.
+        </p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Stored on</th>
+                <th>Required?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Cycle dates</td>
+                <td><span class="tag local">Device</span> <span class="tag cloud">Server</span></td>
+                <td>Core function of the app</td>
+              </tr>
+              <tr>
+                <td>Symptoms, flow, mood</td>
+                <td><span class="tag local">Device</span> <span class="tag cloud">Server</span></td>
+                <td>Optional</td>
+              </tr>
+              <tr>
+                <td>Name</td>
+                <td><span class="tag local">Device</span> <span class="tag cloud">Server</span></td>
+                <td>Optional</td>
+              </tr>
+              <tr>
+                <td>Birth year</td>
+                <td><span class="tag local">Device</span> <span class="tag cloud">Server</span></td>
+                <td>Optional — year only, not a full date</td>
+              </tr>
+              <tr>
+                <td>Height and weight</td>
+                <td><span class="tag local">Device</span> <span class="tag cloud">Server</span></td>
+                <td>Optional</td>
+              </tr>
+              <tr>
+                <td>Pregnancy / contraception</td>
+                <td><span class="tag local">Device</span> <span class="tag cloud">Server</span></td>
+                <td>Optional</td>
+              </tr>
+              <tr>
+                <td>Profile photo</td>
+                <td><span class="tag local">Device only</span></td>
+                <td>Optional — <strong>never uploaded</strong></td>
+              </tr>
+              <tr>
+                <td>Email address</td>
+                <td><span class="tag cloud">Server</span></td>
+                <td>Only if you create an account</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          <strong>What we do not collect:</strong> location, contacts, browsing history, device
+          identifiers, advertising IDs, camera or microphone recordings. The only system permission
+          the app requests is <strong>notifications</strong> (for reminders), which you may decline.
+        </p>
+
+        <h2>2. Where your data is stored</h2>
+        <p>
+          Ovena is <strong>local-first</strong>: your records are written to a database on your
+          phone first. The app works without an internet connection.
+        </p>
+        <p>
+          For backup and to restore your data when you change devices, records are also stored on
+          <strong>Google Firebase</strong> (Google Cloud Firestore). Your data is
+          <strong>tied to your account only</strong>; security rules prevent any other user from
+          reading it.
+        </p>
+
+        <h2>3. How your data is used</h2>
+        <ul>
+          <li>To record your cycle and display it on the calendar</li>
+          <li>To compute analytics such as average cycle length, regularity and delay</li>
+          <li>To predict your next period and ovulation dates</li>
+          <li>To send reminder notifications if you granted permission</li>
+          <li>To restore your data when you switch devices</li>
+        </ul>
+        <p>
+          Your data is never used for <strong>profiling, ad targeting or marketing</strong>.
+        </p>
+
+        <h2>4. Sharing</h2>
+        <p>
+          We do <strong>not sell</strong> your data and do not share it with advertising networks.
+          The app contains no advertising SDKs and no third-party analytics trackers.
+        </p>
+        <p>Only the following service provider is used:</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Provider</th>
+                <th>Purpose</th>
+                <th>Policy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Google Firebase</td>
+                <td>Authentication, data backup and synchronisation</td>
+                <td>
+                  <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener"
+                    >firebase.google.com/support/privacy</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          We may also disclose data where legally required (for example, a court order).
+        </p>
+
+        <h2>5. Security</h2>
+        <ul>
+          <li>Communication with the server is encrypted using <strong>HTTPS/TLS</strong></li>
+          <li>
+            Firestore security rules allow each user to access
+            <strong>only their own data</strong>; this check runs on Google's servers
+          </li>
+          <li>Modifying the app's code is not enough to bypass this protection</li>
+        </ul>
+        <p>
+          No system is 100% secure. While we take reasonable technical measures, we cannot guarantee
+          absolute security.
+        </p>
+
+        <h2>6. Retention</h2>
+        <p>
+          Your data is kept until you delete it. Once you request deletion it is permanently removed
+          <strong>within 30 days</strong>. See the <a href="hesap-silme.html">Delete Account</a>
+          page for details and retention periods.
+        </p>
+
+        <h2>7. Your rights</h2>
+        <p>Under GDPR and Turkish data protection law (KVKK) you have the right to:</p>
+        <ul>
+          <li><strong>Access</strong> your data and request a copy</li>
+          <li><strong>Correct</strong> inaccurate data (you can do this in the app)</li>
+          <li>Request <strong>deletion</strong> of your data</li>
+          <li><strong>Object</strong> to processing and withdraw consent</li>
+        </ul>
+        <p>
+          To exercise these rights, email
+          <a href="mailto:osmangundemir1@gmail.com">osmangundemir1@gmail.com</a>.
+        </p>
+
+        <h2>8. Children's privacy</h2>
+        <p>
+          Ovena is not directed at children <strong>under 13</strong>, and we do not knowingly
+          collect data from this age group. If we become aware of such data, we delete it.
+        </p>
+
+        <h2>9. Medical disclaimer</h2>
+        <p>
+          Predictions provided by Ovena are <strong>statistical</strong> and for informational
+          purposes only. They are <strong>not medical advice</strong> and
+          <strong>must not be used as a method of contraception</strong>. Consult your doctor for
+          health decisions.
+        </p>
+
+        <h2>10. Changes</h2>
+        <p>
+          This policy may be updated. When a significant change occurs, the date on this page is
+          updated and, where appropriate, you are informed within the app.
+        </p>
+
+        <h2>11. Contact</h2>
+        <p>
+          <strong>Osman Gündemir</strong><br />
+          <a href="mailto:osmangundemir1@gmail.com">osmangundemir1@gmail.com</a>
+        </p>
+      </main>
+
+      <footer>
+        <span data-lang="tr" class="on">
+          Ovena · com.ovena.app · Geliştirici: Osman Gündemir · Son güncelleme: 5 Ağustos 2026
+        </span>
+        <span data-lang="en">
+          Ovena · com.ovena.app · Developer: Osman Gündemir · Last updated: 5 August 2026
+        </span>
+      </footer>
+    </div>
+
+    <script src="lang.js"></script>
+  </body>
+</html>
