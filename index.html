@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ovena — Regl Takip Uygulaması</title>
+    <meta
+      name="description"
+      content="Ovena, verilerini telefonunda saklayan bir regl takip uygulaması. Gizlilik politikası ve hesap silme talebi." />
+    <meta name="robots" content="index, follow" />
+    <link rel="stylesheet" href="style.css" />
+    <span hidden data-title-tr="Ovena — Regl Takip Uygulaması"></span>
+    <span hidden data-title-en="Ovena — Period Tracking App"></span>
+    <style>
+      .hero {
+        text-align: center;
+        padding: 20px 0 8px;
+      }
+
+      .hero .mark {
+        width: 88px;
+        height: 88px;
+        border-radius: 22px;
+        margin: 0 auto 18px;
+      }
+
+      .hero .mark svg {
+        width: 56px;
+        height: 56px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .links {
+        display: grid;
+        gap: 12px;
+        margin: 32px 0;
+      }
+
+      .link-card {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 18px 20px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface);
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .link-card:hover {
+        border-color: var(--accent);
+      }
+
+      .link-card .icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: var(--accent-soft);
+        display: grid;
+        place-items: center;
+        font-size: 19px;
+        flex-shrink: 0;
+      }
+
+      .link-card .t {
+        font-weight: 600;
+        color: var(--fg);
+      }
+
+      .link-card .d {
+        font-size: 14px;
+        color: var(--fg-muted);
+      }
+
+      .link-card .arrow {
+        margin-left: auto;
+        color: var(--fg-subtle);
+        flex-shrink: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header>
+        <a class="brand" href="index.html">
+          <div class="mark" aria-hidden="true">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="50" cy="50" rx="34" ry="39" stroke="#e9bab3" stroke-width="5" />
+              <path d="M32 62c0-11 9-20 20-20 0 8-2 14-6 18-4 4-9 6-14 6z" fill="#e9bab3" />
+              <path d="M62 30l2.5 7 7 2.5-7 2.5-2.5 7-2.5-7-7-2.5 7-2.5z" fill="#e9bab3" />
+            </svg>
+          </div>
+          <div>
+            <div class="brand-name">Ovena</div>
+            <div class="brand-sub">com.ovena.app</div>
+          </div>
+        </a>
+
+        <div class="lang" role="group" aria-label="Dil / Language">
+          <button type="button" data-set="tr" aria-pressed="true">Türkçe</button>
+          <button type="button" data-set="en" aria-pressed="false">English</button>
+        </div>
+      </header>
+
+      <!-- ============================== TÜRKÇE ============================== -->
+      <main data-lang="tr" class="on">
+        <div class="hero">
+          <div class="mark" aria-hidden="true">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="50" cy="50" rx="34" ry="39" stroke="#e9bab3" stroke-width="5" />
+              <path d="M32 62c0-11 9-20 20-20 0 8-2 14-6 18-4 4-9 6-14 6z" fill="#e9bab3" />
+              <path d="M62 30l2.5 7 7 2.5-7 2.5-2.5 7-2.5-7-7-2.5 7-2.5z" fill="#e9bab3" />
+            </svg>
+          </div>
+          <h1>Ovena</h1>
+          <p class="lead">
+            Döngünü takip et, ortalamalarını gör, bir sonraki tarihi öngör. Verilerin
+            telefonunda kalır.
+          </p>
+        </div>
+
+        <div class="links">
+          <a class="link-card" href="gizlilik.html">
+            <div class="icon" aria-hidden="true">🔒</div>
+            <div>
+              <div class="t">Gizlilik Politikası</div>
+              <div class="d">Hangi veriler toplanır, nerede saklanır, kiminle paylaşılır</div>
+            </div>
+            <div class="arrow" aria-hidden="true">→</div>
+          </a>
+
+          <a class="link-card" href="hesap-silme.html">
+            <div class="icon" aria-hidden="true">🗑️</div>
+            <div>
+              <div class="t">Hesap ve Veri Silme</div>
+              <div class="d">Silme talebi oluşturma adımları ve saklama süreleri</div>
+            </div>
+            <div class="arrow" aria-hidden="true">→</div>
+          </a>
+        </div>
+
+        <h2>Uygulama hakkında</h2>
+        <p>
+          Ovena bir regl takip uygulamasıdır. Girdiğin kayıtlardan ortalama döngü uzunluğunu,
+          düzenlilik skorunu ve gecikme durumunu hesaplar; bir sonraki regl ve ovülasyon tarihini
+          tahmin eder.
+        </p>
+        <p>
+          Uygulama <strong>yerel öncelikli</strong> çalışır: kayıtların önce telefonundaki
+          veritabanına yazılır, internet olmadan da kullanabilirsin. Yedekleme ve cihaz
+          değiştirdiğinde geri yükleme için veriler ayrıca güvenli biçimde sunucuda saklanır.
+        </p>
+
+        <div class="card">
+          <p style="margin: 0">
+            <strong>Tıbbi uyarı:</strong> Ovena'nın tahminleri istatistikseldir ve yalnızca
+            bilgilendirme amaçlıdır. Tıbbi tavsiye değildir ve doğum kontrol yöntemi olarak
+            kullanılamaz.
+          </p>
+        </div>
+
+        <h2>İletişim</h2>
+        <p>
+          <strong>Osman Gündemir</strong><br />
+          <a href="mailto:osmangundemir1@gmail.com">osmangundemir1@gmail.com</a>
+        </p>
+      </main>
+
+      <!-- ============================== ENGLISH ============================== -->
+      <main data-lang="en">
+        <div class="hero">
+          <div class="mark" aria-hidden="true">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="50" cy="50" rx="34" ry="39" stroke="#e9bab3" stroke-width="5" />
+              <path d="M32 62c0-11 9-20 20-20 0 8-2 14-6 18-4 4-9 6-14 6z" fill="#e9bab3" />
+              <path d="M62 30l2.5 7 7 2.5-7 2.5-2.5 7-2.5-7-7-2.5 7-2.5z" fill="#e9bab3" />
+            </svg>
+          </div>
+          <h1>Ovena</h1>
+          <p class="lead">
+            Track your cycle, see your averages, know what comes next. Your data stays on your
+            phone.
+          </p>
+        </div>
+
+        <div class="links">
+          <a class="link-card" href="gizlilik.html">
+            <div class="icon" aria-hidden="true">🔒</div>
+            <div>
+              <div class="t">Privacy Policy</div>
+              <div class="d">What data is collected, where it is stored, who it is shared with</div>
+            </div>
+            <div class="arrow" aria-hidden="true">→</div>
+          </a>
+
+          <a class="link-card" href="hesap-silme.html">
+            <div class="icon" aria-hidden="true">🗑️</div>
+            <div>
+              <div class="t">Account &amp; Data Deletion</div>
+              <div class="d">Steps to request deletion and retention periods</div>
+            </div>
+            <div class="arrow" aria-hidden="true">→</div>
+          </a>
+        </div>
+
+        <h2>About the app</h2>
+        <p>
+          Ovena is a period tracking app. From the records you enter it computes your average cycle
+          length, a regularity score and any delay, and predicts your next period and ovulation
+          dates.
+        </p>
+        <p>
+          The app is <strong>local-first</strong>: your records are written to a database on your
+          phone first, and it works without an internet connection. Data is also stored securely on
+          a server for backup and for restoring when you change devices.
+        </p>
+
+        <div class="card">
+          <p style="margin: 0">
+            <strong>Medical disclaimer:</strong> Ovena's predictions are statistical and for
+            informational purposes only. They are not medical advice and must not be used as a
+            method of contraception.
+          </p>
+        </div>
+
+        <h2>Contact</h2>
+        <p>
+          <strong>Osman Gündemir</strong><br />
+          <a href="mailto:osmangundemir1@gmail.com">osmangundemir1@gmail.com</a>
+        </p>
+      </main>
+
+      <footer>
+        <span data-lang="tr" class="on">
+          Ovena · com.ovena.app · Geliştirici: Osman Gündemir · Son güncelleme: 5 Ağustos 2026
+        </span>
+        <span data-lang="en">
+          Ovena · com.ovena.app · Developer: Osman Gündemir · Last updated: 5 August 2026
+        </span>
+      </footer>
+    </div>
+
+    <script src="lang.js"></script>
+  </body>
+</html>
